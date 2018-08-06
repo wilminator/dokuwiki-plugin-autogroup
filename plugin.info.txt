@@ -1,0 +1,7 @@
+﻿base   autogroup
+author Michael Wilmes
+email  michael.wilmes@gmail.com
+date   2018-08-06
+name   AutoGroup Plugin
+desc   Provides a way to automatically group users based on account values.
+url    https://www.dokuwiki.org/plugin:autogroup
