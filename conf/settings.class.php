@@ -17,8 +17,8 @@ if (!class_exists('setting_autogroup')) {
          * @param string $string
          * @return array
          */
-        protected function _from_string($string){
-            $array = explode("\n", $string, 3);
+        protected function _from_string($string){            
+            $array = explode("\n", $string);
             $array = array_map('trim', $array);
             $array = array_filter($array);
             $array = array_unique($array);
@@ -45,8 +45,9 @@ if (!class_exists('setting_autogroup')) {
         function update($input) {
             if (is_null($input)) return false;
             if ($this->is_protected()) return false;
-            
+            dbglog(print_r(urlencode($input),true));
             $lines = $this->_from_string($input);
+            dbglog(print_r($lines,true));
             $everything = $this->_from_array($lines);
 
             $value = is_null($this->_local) ? $this->_default : $this->_local;

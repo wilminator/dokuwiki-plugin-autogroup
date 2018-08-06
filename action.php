@@ -105,6 +105,7 @@ class action_plugin_autogroup extends DokuWiki_Action_Plugin {
         
         // Get this user's current group data.
         $oldinfo = $auth->getUserData($user);
+        $oldinfo['user']=$user;
         $oldgrps = $oldinfo['grps'];
         $newgrps = array_values($oldgrps);
         
@@ -176,7 +177,6 @@ class action_plugin_autogroup extends DokuWiki_Action_Plugin {
     
     public function check_update_all_event(&$event, $param){
         if ($_SESSION['PLUGIN_CONFIG']['state'] == 'updated') {
-            dbglog('going in');
             $this->update_all_groups();
         }
     }
